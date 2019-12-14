@@ -27,13 +27,20 @@ main {
 .grid-view div.card.ui {
   margin: 1.25rem;
 }
-/*
+
 .main-img {
   display: block;
   border-radius: 100%;
   margin: 0 auto;
-} */
+}
 
-header h1 {
-  text-align: center;
+.header .logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header .logo img {
+  display: inline;
+  width: 120px;
 }
