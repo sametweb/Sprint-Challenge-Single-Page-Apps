@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Row, Col, Alert, ButtonGroup, Button } from "reactstrap";
-import EpisodeCard from "./EpisodeCard";
+import LocationCard from "./LocationCard";
 
-export default function EpisodeList() {
-  const [episodes, setEpisodes] = useState([]);
+export default function LocationList() {
+  const [locations, setLocations] = useState([]);
   const [info, setInfo] = useState([]);
   const [baseUrl, setBaseUrl] = useState(
-    "https://rickandmortyapi.com/api/episode/"
+    "https://rickandmortyapi.com/api/location/"
   );
 
   useEffect(() => {
     axios
       .get(baseUrl)
       .then(res => {
-        setEpisodes(res.data.results);
+        setLocations(res.data.results);
         setInfo(res.data.info);
       })
       .catch(err => console.log(err));
   }, [baseUrl]);
 
-  console.log(episodes, info);
+  console.log(locations, info);
   return (
     <>
       <Row>
         <Col xs="12">
           <Alert color="light">
-            {`${info.count} episodes found!`}
+            {`${info.count} locations found!`}
             <ButtonGroup className="float-right">
               <Button
                 onClick={() => info.prev && setBaseUrl(info.prev)}
@@ -45,8 +45,8 @@ export default function EpisodeList() {
         </Col>
       </Row>
       <Row className="character-list">
-        {episodes.map(episode => (
-          <EpisodeCard key={episode.id} episode={episode} />
+        {locations.map(location => (
+          <LocationCard key={location.id} location={location} />
         ))}
       </Row>
     </>

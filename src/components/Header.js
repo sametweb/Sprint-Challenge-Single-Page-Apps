@@ -23,13 +23,22 @@ export default function Header() {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink exact to="/characters" className="nav-link">
+              <NavLink
+                exact
+                to={{ pathname: "/characters" }}
+                className="nav-link"
+              >
                 Characters
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink exact to="/episodes" className="nav-link">
                 Episodes
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink exact to="/locations" className="nav-link">
+                Locations
               </NavLink>
             </NavItem>
           </Nav>
